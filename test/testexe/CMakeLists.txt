@@ -1,0 +1,6 @@
+add_executable(sum1 sum1.c)
+add_executable(sum2 sum2.c)
+add_executable(sum3 sum3.c)
+add_executable(sum4 sum4.c)
+add_executable(sum5 sum5.c)
+add_executable(sum6 sum6.c)

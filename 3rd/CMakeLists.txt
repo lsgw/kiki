@@ -1,0 +1,6 @@
+add_subdirectory(lua)
+add_subdirectory(lua-rapidjson)
+add_subdirectory(lua-serialize)
+add_subdirectory(udns-0.2)
+add_subdirectory(c-ares)
+add_subdirectory(http-parser)

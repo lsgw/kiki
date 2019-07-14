@@ -1,0 +1,37 @@
+{
+	"daemon": false,
+	"profile": true,
+	"thread": {
+		"event": 2,
+		"worker": 2
+	},
+	"module": {
+		"path": ["../lib/lib?.so"]
+	},
+	"lua": {
+		"path": [
+			"../lualib/?.lua",
+			"../lualib/driver/?.lua",
+			"../test/?.lua",
+			"../test/testexe/?.lua"
+		],
+		"cpath": ["../lib/lib?.so"],
+		"loader": "../lualib/loader.lua"
+	},
+	"entry": {
+		"main": "Launcher",
+		"args": [{
+			"service": "Logger",
+			"args": {"level":"TRACE"}
+		},{
+			"service": "Signal",
+			"args": {"SIGPIPE":"SIG_IGN"}
+		},{
+			"service": "Snlua",
+			"args": ["testhttp2", "127.0.0.1", 9898, false]
+		},{
+			"service": "Snlua",
+			"args": ["testudp3", "127.0.0.1", 8888, false]
+		}]
+	}
+}

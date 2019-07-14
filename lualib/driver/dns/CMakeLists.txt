@@ -1,0 +1,13 @@
+OPTION (UDNS "udns" OFF)
+
+IF (UDNS)
+	add_library(dns SHARED udns.cpp)
+	target_link_libraries(dns udns)
+	set_target_properties(dns PROPERTIES LINK_FLAGS "-fPIC")
+	set_target_properties(dns PROPERTIES SUFFIX ".so")
+ELSE()
+	add_library(dns SHARED cdns.cpp)
+	target_link_libraries(dns ${CMAKE_SOURCE_DIR}/build/lib/libcares_static.a)
+	set_target_properties(dns PROPERTIES LINK_FLAGS "-fPIC")
+	set_target_properties(dns PROPERTIES SUFFIX ".so")
+ENDIF(UDNS)
